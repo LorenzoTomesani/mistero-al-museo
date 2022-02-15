@@ -1,0 +1,27 @@
+html *{
+	font-family: "Courier New", Courier, monospace;
+}
+.msg-error{
+	padding-top: 20vh;
+}
+
+.image-error{
+	margin-top: 5vh;
+	height: 25vh;
+}
+
+@media screen and (max-width: 767px){
+	#title-error{
+	font-size: 20px;
+	}
+
+	#button-redir{
+	font-size: 10px;
+	}
+}
+
+@media screen and (min-width: 768px){
+	#title-error{
+	font-size: 36px;
+	}
+}

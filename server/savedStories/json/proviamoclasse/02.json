@@ -1,0 +1,65 @@
+{
+	"title": "proviamoclasse",
+	"desc": "classe",
+	"storyMissions": [
+		"missione1",
+		"missione2",
+		"missione3"
+	],
+	"background": "image_2021-01-21_11-24-56.png",
+	"activities": [
+		{
+			"idActivity": 0,
+			"activityMission": "missione1",
+			"type": "0",
+			"text": "inizio dellla storia per la classe"
+		},
+		{
+			"idActivity": 1,
+			"activityMission": "missione1",
+			"type": "1",
+			"request": "ma si vince?",
+			"value": "no",
+			"points": "1"
+		},
+		{
+			"idActivity": 2,
+			"activityMission": "missione2",
+			"type": "2",
+			"request": "forse si vince?",
+			"accept": "image"
+		},
+		{
+			"idActivity": 3,
+			"type": "4",
+			"activityMission": "missione3",
+			"text": "arrivati alla fine!!"
+		}
+	],
+	"accessibility": "false",
+	"totalActivity": 5,
+	"gruppo1": [
+		"0",
+		"1",
+		"2",
+		"3"
+	],
+	"gruppo2": [
+		"0",
+		"2",
+		"1",
+		"3"
+	],
+	"gruppo3": [
+		"0",
+		"2",
+		"2",
+		"3"
+	],
+	"gruppo4": [
+		"0",
+		"1",
+		"1",
+		"3"
+	]
+}

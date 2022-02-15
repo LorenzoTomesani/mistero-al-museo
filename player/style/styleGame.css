@@ -1,0 +1,260 @@
+html *{
+	font-family: "Courier New", Courier, monospace;
+}
+
+#text_box, #myModal{
+	overflow-wrap: break-word !important;
+	word-break: break-word !important;
+}
+
+*:focus{
+    outline: none;
+}
+
+nav{
+	background-size: cover;
+	background-repeat: no-repeat;
+	width: 100vw;
+	height: 10vh;
+	-webkit-text-stroke-width: 0.2px;
+	-webkit-text-stroke-color: black;
+}
+
+.main-position{
+	margin-top: 10vh;
+	display: fixed;
+}
+
+
+#bar-progress{
+	height: 5vh;
+	padding: 1.5vh 2vh 1.5vh 2vh;
+}
+
+#progress-bar{
+	display: fixed;
+}
+
+.center-box-styling{
+	display: fixed;
+	height: 50vh;
+}
+
+.border-styling{
+	border: 2px solid black !important; 
+}
+
+.modal-content{
+	max-width: 100% !important;
+	color: white;
+}
+
+.white-border {
+	border: 2px solid white !important;
+	animation-fill-mode: none;
+}
+
+.talker {
+	height : 10em;
+	width: auto;
+	border: 2px solid white !important;
+	color: white;
+}
+
+.story {
+	overflow: hidden; /* Ensures the content is not revealed until the animation */
+	margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+	letter-spacing: .15em; /* Adjust as needed */
+}
+
+.right-hints {
+	position : relative;
+	float : right;
+	width : 5em;
+	margin-top: .25em;
+
+}
+
+#myModal,  .modal-body, .modal-content, #text-changer, .modal-dialog{
+ 	background-color:rgba(0, 0,0,0) !important;
+	height: auto !important;
+}
+
+
+.chat-popup {
+	background-color: white;
+	display: block;
+	position: fixed;
+	bottom: 1vh !important;
+	right: 3vw;
+	width: 18vw;
+	border: 3px solid #f1f1f1;
+}
+
+.open-button {
+	opacity: 0.8;
+	width: 6vw;
+	font-size: 1.5em !important;
+	height: 5vh !important;
+	bottom: 3vh !important;
+	right: 3vw;
+	position: fixed;
+	display: block;
+}
+
+.form-container {
+	max-width: 20vw;
+	background-color: white;
+}
+
+.modal-backdrop
+{
+    opacity:0.9 !important;
+}
+
+#textToReceive{
+	height:15vh;
+}
+
+label{
+	display: block;
+	margin: 0 0 0 .25em !important;
+}
+
+#answerRow{
+	bottom: 0;
+	position: fixed;
+	margin: 1em 0 0 1em;
+}
+
+#answertext{
+	bottom: 5vh;
+}
+
+#answerLong{
+	bottom: 3.5vh;
+}
+
+#nextButton{
+	margin: 1em;
+}
+
+@media screen and (max-width: 767px){
+	#story-title{
+		text-align: center;
+		font-size: 1.25em;
+	}
+
+	h1{
+		font-size: 1.25em;
+	}
+
+	#text_box, #hints_box, #answerRow{
+		font-size: .85em;
+	}
+
+	.border-styling{
+		border: none !important;
+	}
+}
+
+@media screen and (min-width:768px) {
+	#story-title{
+		text-align: center;
+		font-size: 2.25em;
+	}
+}
+
+/* @media(max-width: 1000px) { */
+@media screen and (max-width:1024px) {
+	.open-button {
+		opacity: 0.8 !important;
+		width: auto !important;
+		font-size: 1.5em !important;
+		height: auto !important;
+		bottom: 3vh !important;
+		right: 3vw !important;
+		position: fixed;
+		display: block;
+	}
+	.chat-popup {
+		position: fixed !important;
+		height: auto !important;
+		width: 35vw !important;
+		right: 10vw !important;
+		z-index: 1050 !important;
+		border: 3px solid #f1f1f1 !important;
+	}
+	.modal-dialog{
+		overflow-y: auto !important
+	}
+	.modal-body{
+		max-height: 70vh !important;
+		overflow-y: auto !important;
+	}
+
+
+ 	/* prova */
+	#textToReceive{
+	 height:10vh;
+	 width: 34vw;
+	}
+
+	#textToSend{
+		width: 34vw;
+	}
+
+	/* #answerRow{
+	 margin-top:1vh;
+	} */
+}
+
+ @media screen and (min-width:1025px) and (max-width: 1280px)  { /* questo dovrebbe andare bene*/
+
+	 .open-button {
+	 	opacity: 0.8;
+	 	width: 8vw;
+	 	font-size: 1.5em !important;
+	 	height: auto !important;
+	 	bottom: 3vh !important;
+	 	right: 3vw;
+	 	position: fixed;
+	 	display: block;
+	 }
+
+	 .chat-popup {
+	 	background-color: white;
+	 	display: block;
+	 	position: fixed;
+	 	bottom: 1vh !important;
+	 	right: 3vw;
+	 	width: 35vw;
+		height: 30vh;
+	 	border: 3px solid #f1f1f1;
+		bottom: 5vh;
+	 }
+
+	 #textToReceive{
+	 	height:10vh;
+	 }
+
+	 #answerRow{
+	 	margin-top:3vh;
+	 }
+
+ }
+
+ @media screen and (min-width: 1281px) {
+
+	 .open-button {
+	 	opacity: 0.8;
+	 	width: 10vw;
+	 	font-size: 1.5em !important;
+	 	height: auto !important;
+	 	bottom: 5vh !important;
+	 	right: 3vw;
+	 	position: fixed;
+	 	display: block;
+	 }
+
+ }

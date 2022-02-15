@@ -1,0 +1,186 @@
+{
+    "title": "Furto al museo",
+    "desc": "Benvenuto nella storia di un ladro gentiluomo che per amore vuole rubare un prezioso manufatto egizio, il suo nome : Arsenio Lupin",
+    "totalActivity": 20,
+    "background": "egipt.jpg",
+    "activities": [
+
+        {
+            "idActivity": 0,
+            "activityMission": "Introduzione",
+            "type": 0,
+            "text": "Lupin ha promesso alla sua amata Fujiko un prezioso manufatto appartenente alla collezione egizia del British Museum, un vero gioiellino",
+            "nextActivity": 1,
+            "urlImage": "lupin.png"
+        },
+        {
+            "idActivity": 1,
+            "activityMission": "L'infiltrazione",
+            "type": 3,
+            "points":"3",
+            "text": "Completa il memory per aiutare Lupin ad intrufolarsi",
+            "widget": "widget0.json",
+            "nextActivity": 2
+        },
+        {
+            "idActivity": 2,
+            "activityMission": "L'infiltrazione",
+            "type": 0,
+            "text": "Wow ... sono dentro, non pensavo sarebbe stato così facile. Adesso devo solo capire dove si trova la collezione egizia...",
+            "nextActivity": 3,
+            "urlImage": "lupin.png"
+        },
+        {
+            "idActivity": 3,
+            "activityMission": "Alla ricerca",
+            "type": 1,
+            "points":"3",
+            "request": "Che cosa significa geroglifico?",
+            "value": "Segno sacro",
+            "nextActivity": 4
+        },
+        {
+            "idActivity": 4,
+            "activityMission": "Ricerca della cassaforte",
+            "type": 0,
+            "text": "So per certo che questo inestimabile manufatto è conseverto all'interno di una cassaforte, la domanda è : dove posso trovarla?",
+            "nextActivity": 5,
+            "urlImage": "lupin.png"
+        },
+        {
+            "idActivity": 5,
+            "activityMission": "Ricerca della cassaforte",
+            "type": 2,
+            "request": "Fornire una descrizione della socità egizia (es. descrivere lo schema piramidale delle caste)",
+            "accept": "text",
+            "nextActivity": 6
+        },
+        {
+            "idActivity": 6,
+            "activityMission": "Ricerca della cassaforte",
+            "type": 0,
+            "text": "Perfetto, sono riuscito ad arrivare nell'area egizia senza far scattare la sorveglianza, un momento ... la vedo ... ECCO LA CASSAFORTE!!",
+            "nextActivity": 7,
+            "urlImage": "lupin.png"
+        },
+        {
+            "idActivity": 7,
+            "activityMission": "Ricerca della cassaforte",
+            "type": 1,
+            "points":"10",
+            "request": "Di chi erano le tre pirami della piana di Giza?",
+            "value": "Cheope Chefren Micerino",
+            "nextActivity": 8
+        },
+        {
+            "idActivity": 8,
+            "activityMission": "Apertura della cassaforte",
+            "type": 0,
+            "text": "Perfetto ci sono davanti, adesso non resta che aprirla",
+            "nextActivity": 9,
+            "urlImage": "lupin.png"
+        },
+        {
+            "idActivity": 9,
+            "activityMission": "Apertura della cassaforte",
+            "type": 1,
+            "points":"3",
+            "request": "Qual era l'animale venerato dagli egizi?",
+            "value": "gatto",
+            "nextActivity": 10
+        },
+        {
+            "idActivity": 10,
+            "activityMission": "Ricerca del sarcofago",
+            "type": 0,
+            "text": "Fantastico la cassaforte si è aperta ... UN ATTIMO ... NON CI CREDO ... È VUOTAAAAA!!!!! Pensa, Lupin, pensa dove altro portebbe essere? Ma certo, sarà rimasta all'interno del sarcofago",
+            "nextActivity": 11,
+            "urlImage": "lupin.png"
+        },
+        {
+            "idActivity": 11,
+            "activityMission": "Ricerca del sarcofago",
+            "type": 2,
+            "request": "Descrivere il processo di imbalsamazione adottato dagli egizi",
+            "accept": "text",
+            "nextActivity": 12
+        },
+        {
+            "idActivity": 12,
+            "activityMission": "Ricerca del sarcofago",
+            "type": 0,
+            "text": "Eccolo! Questo deve essere quello giusto ... proviamo ad aprirlo ...",
+            "nextActivity": 13,
+            "urlImage": "lupin.png"
+        },
+        {
+            "idActivity": 13,
+            "activityMission": "Apertura sarcofago",
+            "type": 1,
+            "request": "Sette case contengono sette gatti. Ogni gatto uccide sette topi. Ogni topo avrebbe mangiato sette spighe di grano. Ogni spiga di grano avrebbe prodotto sette misure di farina. Qual `e il totale?",
+            "value": "19607",
+            "points":"6",
+            "nextActivity": 14
+        },
+        {
+            "idActivity": 14,
+            "activityMission": "Apertura sarcofago",
+            "type": 0,
+            "text": "Che fatica, era abbastanza pesante, ma ce l'ho fatta!!! Ecco il famoso manufatto, la maschera di Tutankhamon, devo assolutamente riuscire a prenderla",
+            "nextActivity": 15,
+            "urlImage": "lupin.png"
+        },
+        {
+            "idActivity": 15,
+            "activityMission": "Prendere il tesoro",
+            "type": 1,
+            "points":"6",
+            "request": "Quale divinità egizia proteggeva il faraone?",
+            "value": "Horus",
+            "nextActivity": 16
+        },
+        {
+            "idActivity": 16,
+            "activityMission": "Prendere il tesoro",
+            "type": 0,
+            "text": "Ottimo, adesso ho preso il tesoro, devo solo richiudere il sarcofago per non farmi scoprire",
+            "nextActivity": 17,
+            "urlImage": "lupin.png"
+        },
+        {
+            "idActivity": 17,
+            "activityMission": "Chiudere la bara",
+            "type": 1,
+            "points": "5",
+            "request": "Risolvere la seguente espressione per richiudere la bara : \n [(12 ∶ 4 + 9 ∶ 1 + 15 ∶ 5) · 2 – (1 + 1 + 8 + 16 + 1)] ∶ 3",
+            "value": "2",
+            "nextActivity": 18
+        },
+        {
+            "idActivity": 18,
+            "activityMission": "Fuga",
+            "type": 0,
+            "text": "Perfetto, adesso non mi rimane che SCAPPARE",
+            "nextActivity": 19,
+            "urlImage": "lupin.png"
+        },
+        {
+            "idActivity": 19,
+            "activityMission": "Fuga",
+            "type": 2,
+            "request": "Fornire la foto di una chiave per aiutare il ladro gentiluomo a scappare",
+            "accept": "image",
+            "nextActivity": 20
+        },
+        {
+            "idActivity": 20,
+            "activityMission": "Fuga",
+            "type": 4,
+            "text": "Fantascito hai aiutato Lupin a farla franca, ricorda però: rubare non è una soluzione, anzi, speriamo che questa piccola storiella ti abbia insegnato ad apprezzare un poco di più il mondo egizio",
+            "nextActivity": null,
+            "urlImage": "lupin.png"
+        }
+
+    ]
+
+}

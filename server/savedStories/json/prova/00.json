@@ -1,0 +1,19 @@
+{
+	"title": "proviamo1234",
+	"desc": "storia di prova salvatae",
+	"storyMissions": [
+		"missione2"
+	],
+	"background": "786fcaa3-8bfc-48dc-bd4d-42d0de269a7d.png",
+	"activities": [
+		{
+			"idActivity": 0,
+			"activityMission": "missione2",
+			"type": "0",
+			"text": "proviamo",
+			"nextActivity": "1"
+		}
+	],
+	"accessibility": "false",
+	"totalActivity": 2
+}

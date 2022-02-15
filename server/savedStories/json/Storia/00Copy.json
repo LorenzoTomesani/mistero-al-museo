@@ -1,0 +1,45 @@
+{
+	"title": "Storia",
+	"desc": "storia di prova salvata",
+	"storyMissions": [
+		"missione1",
+		"missione2",
+		"missione3",
+		"missione4"
+	],
+	"background": "image_2021-01-21_11-24-56.png",
+	"activities": [
+		{
+			"idActivity": 0,
+			"activityMission": "missione1",
+			"type": "0",
+			"nextActivity": "2",
+			"text": "spiegazione 1"
+		},
+		{
+			"idActivity": 1,
+			"activityMission": "missione2",
+			"type": "1",
+			"request": "è la fine?",
+			"value": "non funzionaaaaa",
+			"nextActivity": "3",
+			"points": "1"
+		},
+		{
+			"idActivity": 2,
+			"nextActivity": "1",
+			"activityMission": "missione3",
+			"type": "2",
+			"request": "testo di spiegazione, non è una domanda?",
+			"accept": "image"
+		},
+		{
+			"idActivity": 3,
+			"type": "4",
+			"activityMission": "missione4",
+			"text": "arrivati alla fine speriamo che non ci siano errori"
+		}
+	],
+	"accessibility": "false",
+	"totalActivity": 5
+}

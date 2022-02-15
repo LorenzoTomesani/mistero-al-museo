@@ -1,0 +1,48 @@
+{
+	"memory": [
+		{
+			"name": "retro",
+			"value": "/images/retro.jpg"
+		},
+		{
+			"name": "parco",
+			"value": "/images/parco.jpg"
+		},
+		{
+			"name": "educazione",
+			"value": "/images/educazione.jpg"
+		},
+		{
+			"name": "biomasse",
+			"value": "/images/centrale-biomasse.jpg"
+		},
+		{
+			"name": "discarica",
+			"value": "/images/discarica.jpg"
+		},
+		{
+			"name": "bicicletta",
+			"value": "/images/bicicletta.jpg"
+		},
+		{
+			"name": "macchina",
+			"value": "/images/macchina.jpg"
+		},
+		{
+			"name": "strada",
+			"value": "/images/strada.jpg"
+		},
+		{
+			"name": "strada alberata",
+			"value": "/images/strada-alberata.jpg"
+		},
+		{
+			"name": "pensilina con p",
+			"value": "/images/pensilina-pannello.jpg"
+		},
+		{
+			"name": "pensilina senza p",
+			"value": "/images/pensilina-senza-pannelli.jpg"
+		}
+	]
+}

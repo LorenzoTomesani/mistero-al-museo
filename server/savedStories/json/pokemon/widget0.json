@@ -1,0 +1,48 @@
+{
+	"memory": [
+		{
+			"name": "Logo Pokemon.png",
+			"value": "/images/Logo Pokemon.png"
+		},
+		{
+			"name": "butterfree.jpg",
+			"value": "/images/butterfree.jpg"
+		},
+		{
+			"name": "charmander.jpg",
+			"value": "/images/charmander.jpg"
+		},
+		{
+			"name": "eevee.jpg",
+			"value": "/images/eevee.jpg"
+		},
+		{
+			"name": "jigglypuff.jpg",
+			"value": "/images/jigglypuff.jpg"
+		},
+		{
+			"name": "mr-mime.jpg",
+			"value": "/images/mr-mime.jpg"
+		},
+		{
+			"name": "onix.jpg",
+			"value": "/images/onix.jpg"
+		},
+		{
+			"name": "pidgeot.jpg",
+			"value": "/images/pidgeot.jpg"
+		},
+		{
+			"name": "pikachu.jpg",
+			"value": "/images/pikachu.jpg"
+		},
+		{
+			"name": "ponyta.jpg",
+			"value": "/images/ponyta.jpg"
+		},
+		{
+			"name": "slowpoke.jpg",
+			"value": "/images/slowpoke.jpg"
+		}
+	]
+}

@@ -1,0 +1,183 @@
+{
+    "title": "Alla ricerca del Nuovo Mondo",
+    "desc": "Benvenuto nella storia di Alfred, giovane marinaio amante del mare e della storia. E' alla ricerca di una nuova avventura quando gli si presenta l'imperdibile occasione di viaggiare in compagnia del suo idolo: Cristoforo Colombo",
+    "background": "marine.jpg",
+    "totalActivity": 21,
+    "activities": [
+
+        {
+            "idActivity": 0,
+            "activityMission": "Introduzione",
+            "type": 0,
+            "text": "Alfred è un marinaio curioso sempre alla ricerca di nuove avventure. La passione per i racconti dei grandi esploratori e geografi lo ha spinto a passare la vita tra un porto e l'altro, ed ecco che appena trovata una compagnia in partenza subito vi si fionda felice di cominciare un nuovo viaggio verso chissà quale fantastica destinazione!",
+            "urlImage": "marinaio.png",
+			"alt": "immagine di un marinaio"
+        },
+        {
+            "idActivity": 21,
+            "activityMission": "Introduzione",
+            "type": 0,
+            "text": "Ah caspita qui c'è addirittura una selezione per far parte dell'equipaggio, deve essere una compagnia importante!... aspetta.. ma quello è Lui! Cristoforoo",
+            "urlImage": "marinaio.png",
+            "alt": "immagine di un marinaio"
+        },
+        {
+            "idActivity": 1,
+            "activityMission": "Conoscenza del mentore",
+            "type": 1,
+            "points":"3",
+            "request": "Indicare chi teorizzò per primo che la terra non fosse piatta",
+            "value": "Eratostene"
+        },
+        {
+            "idActivity": 2,
+            "activityMission": "Conoscenza del mentore",
+            "type": 0,
+            "text": "Lo sapevo, quando bisogna conoscere qualcosa su di lui nessuno è meglio di me!!!",
+            "urlImage": "marinaio.png",
+			"alt": "immagine di un marinaio"
+        },
+        {
+            "idActivity": 3,
+            "activityMission": "Imbarcarsi",
+            "type": 1,
+            "request": "Per conto di quali sovrani ha lavorato Colombo?",
+            "value": "Spagnoli",
+            "points": "2"
+        },
+        {
+            "idActivity": 4,
+            "activityMission": "Capacità personali",
+            "type": 0,
+            "text": "Bene, mi hanno accettato, adesso non mi resta soltanto che far capire all'equipaggio quello che so fare",
+            "urlImage": "marinaio.png",
+			"alt": "immagine di un marinaio"
+        },
+        {
+            "idActivity": 5,
+            "activityMission": "Capacità personali",
+            "type": 2,
+            "request": "Indicare i nomi di almeno tre nodi",
+            "accept": "text"
+        },
+        {
+            "idActivity": 6,
+            "activityMission": "Conoscenze generali",
+            "type": 0,
+            "text": "Non sembra che li abbia convinti del tutto ... meglio assicurarmene",
+            "urlImage": "marinaio.png",
+			"alt": "immagine di un marinaio"
+        },
+        {
+            "idActivity": 7,
+            "activityMission": "Conoscenze generali",
+            "type": 2,
+            "request": "Indicare almeno cinque parti della nave",
+            "accept": "text"
+        },
+        {
+            "idActivity": 8,
+            "activityMission": "Si salpa!!",
+            "type": 0,
+            "text": "Ok adesso sono a tutti gli effetti un membro dell'equipaggio. Finalmente si salpa!",
+            "urlImage": "marinaio.png",
+			"alt": "immagine di un marinaio"
+        },
+        {
+            "idActivity": 9,
+            "activityMission": "Si salpa!",
+            "type": 2,
+            "request": "Indicare i nomi delle tre Caravelle",
+            "accept": "text"
+        },
+        {
+            "idActivity": 10,
+            "activityMission": "In viaggio",
+            "type": 0,
+            "text": "Wow, è veramente stupendo il mare, una tavola azzurra che non finisce mai.. e chissà dove ci porterà!",
+            "urlImage": "marinaio.png",
+			"alt": "immagine di un marinaio"
+        },
+        {
+            "idActivity": 11,
+            "activityMission": "In viaggio",
+            "type": 1,
+            "request": "Dov'è nato Cristoforo Colombo?",
+            "value": "Genova",            
+            "points":"4"
+        },
+        {
+            "idActivity": 12,
+            "activityMission": "Nervi saldi",
+            "type": 0,
+            "text": "Insomma, bello è bello, ma dopo qualche settimana a mangiare fagioli secchi e vedere sempre lo stesso panorama.. che fame T-T",
+            "urlImage": "marinaio.png",
+			"alt": "immagine di un marinaio"
+        },
+        {
+            "idActivity": 13,
+            "activityMission": "Nervi saldi",
+            "type": 2,
+            "request": "Indicare un metodo per capire se nelle vicinanze c'è terra",
+            "accept": "text"
+        },
+        {
+            "idActivity": 14,
+            "activityMission": "Crampi di fame!",
+            "type": 0,
+            "text": "Sono settimane che stiamo navigando ed ormai il cibo inizia a scarseggiare, ho davveto tanta fame!",
+            "urlImage": "marinaio.png",
+			"alt": "immagine di un marinaio"
+        },
+        {
+            "idActivity": 15,
+            "activityMission": "Crampi di fame!",
+            "type": 2,
+            "request": "Indicare almeno tre cibi che potesero essere adatti ad essere portati nelle stive delle navi nel Cinquecento",
+            "accept": "text"
+        },
+        {
+            "idActivity": 16,
+            "activityMission": "Alla deriva?",
+            "type": 0,
+            "text": "Fantastico, sono riuscito a sgraffignare qualcosa in dispensa mentre nessuno guardava. Adesso che ho lo stomaco pieno posso ragionare.. ma la rotta sarà quella giusta?",
+            "urlImage": "marinaio.png",
+			"alt": "immagine di un marinaio"
+        },
+        {
+            "idActivity": 17,
+            "activityMission": "Alla deriva?",
+            "type": 2,
+            "request": "Indicare un metodo per non perdere la rotta in mare",
+            "accept": "text"
+        },
+        {
+            "idActivity": 18,
+            "activityMission": "Terra!!",
+            "type": 0,
+            "text": "Cosa!?!?!? I consigli che ho dato a Colombo sul mantenimento della rotta hanno dati i loro frutti!?!!? Finalemente ... TERRA!!!!!",
+            "urlImage": "marinaio.png",
+			"alt": "immagine di un marinaio"
+        },
+        {
+            "idActivity": 19,
+            "activityMission": "Terra!!",
+            "type": 1,
+            "request": "In quale anno Colombo sbarcò nel nuovo mondo?",
+            "value": "1492",			          
+            "points":"4"
+        },
+        {
+            "idActivity": 20,
+            "activityMission": "Terra!!",
+            "type": 4,
+            "text": "Grande!! Avete aiutato il marinaio a realizzare il suo sogno, spalleggiare il suo mentore ed arrivare sulle sponde del Nuovo Mondo",
+            "urlImage": "marinaio.png",
+			"alt": "immagine di un marinaio"
+        }
+    ],
+    "gruppo1" : [0,21,11,2,17,4,15,6,9,8,13,10,5,12,19,14,3,16,7,18,1,20],
+    "gruppo2" : [0,21,1,2,7,4,3,6,19,8,5,10,13,12,9,14,15,16,17,18,11,20],
+    "gruppo3" : [0,21,19,2,5,4,13,6,15,8,9,10,1,12,11,14,7,16,3,18,17,20],
+    "gruppo4" : [0,21,17,2,3,4,7,6,11,8,1,10,15,12,13,14,9,16,5,18,19,20]
+}

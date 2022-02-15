@@ -1,0 +1,22 @@
+{
+	"title": "proviamo",
+	"desc": "eweq",
+	"storyMissions": [
+		"eee"
+	],
+	"background": "786fcaa3-8bfc-48dc-bd4d-42d0de269a7d.png",
+	"activities": [
+		{
+			"idActivity": 0,
+			"activityMission": "eee",
+			"type": "0",
+			"text": "eee",
+			"nextActivity": "1"
+		},
+		{
+			"idActivity": 1
+		}
+	],
+	"accessibility": "false",
+	"totalActivity": 2
+}

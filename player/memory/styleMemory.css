@@ -1,0 +1,40 @@
+.grid {
+  position: relative;
+  left: 15vw;
+  top : 4vh;
+  display: grid;
+  grid-template-columns: 5.5vw 5.5vw 5.5vw 5.5vw 5.5vw;
+  grid-template-rows: 10vh  
+                      10vh
+                      10vh
+                      10vh;
+  flex-wrap: wrap;
+  width:  45vw;
+  height: 30vh;
+}
+
+.bordered{
+  border-style: solid;
+  width: 5.2vw;
+  height: 10vh;
+}
+
+@media screen and (max-width: 767px) {
+
+  .grid {
+    position: relative;
+    left: 1vw;
+    top: 1vh;
+    display: flex;
+    flex-wrap: wrap;
+    width:  50vw;
+    height: 30vh;
+  }
+
+  .bordered{
+    border-style: solid;
+    width: 10vw;
+    height: 10vh;
+  }
+
+}

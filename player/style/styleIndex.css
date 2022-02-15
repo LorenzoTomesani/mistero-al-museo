@@ -1,0 +1,84 @@
+html *{
+	font-family: "Courier New", Courier, monospace;
+}
+
+body{
+	background-color: 5fdde5;
+}
+
+.jumbotron{
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: 50% 50%;
+	border-radius: 0px !important;
+	width: 100vw;
+	height: 100vh;
+	margin-bottom: 0px !important;
+	-webkit-text-stroke-width: 0.2px; 
+    -webkit-text-stroke-color: black; 
+}
+
+option{
+	text-align: center;
+}
+
+.form-styling{
+	border-color: d92027;
+	background-color: f4ea8e !important;
+	border-width: medium;
+	cursor: pointer;
+	appearance: none;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+}
+
+<!-- IE <= 11 -->
+.form-styling::-ms-expand{
+	display: none;
+}
+
+.form-styling:hover, .form-styling:focus{
+	background-color: f4ea8e;
+	border-color: d92027;
+	cursor: pointer;
+}
+
+<!-- IE, Edge -->
+.form-styling:hover::-ms-value, .form-styling:focus::-ms-value{
+	color: d92027 !important;
+	background-color: f4ea8e !important;
+	border-color: d92027 !important;
+	cursor: pointer;
+}
+
+#submit-button{ 
+	background-color: f37121;
+	border-color: d92027;
+	border-width: medium;
+	cursor: pointer;
+}
+
+#submit-button:hover, #submit-button:focus{
+	background-color: f37121;
+	border-color: d92027;
+}
+
+@media screen and (max-width: 767px){
+	#story-title{
+		font-size: 1.25em;
+	}
+
+	#story-description, .form-styling, #submit-button{
+		font-size: 0.65em;
+	}
+}
+
+@media screen and (min-width: 768px){
+	#story-title{
+		font-size: 2.25em;
+	}
+
+	#story-description{
+		font-size: 1em;
+	}
+}

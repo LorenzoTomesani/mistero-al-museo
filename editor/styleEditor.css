@@ -1,0 +1,141 @@
+html *{
+	font-family: "Courier New", Courier, monospace;
+}
+
+body{
+	background-color: #5fdde5;
+	min-height: 100vh;
+}
+
+.jumbotron{
+	cursor: pointer;
+	font-size: 36px;
+	color: #fff;
+	background-color: #f37121; 
+	border-color: #d92027 !important;
+	border-style: solid;
+	border-radius: 0px !important;
+	-webkit-text-stroke-width: 0.2px; 
+	-webkit-text-stroke-color: black; 
+}
+
+option{
+	text-align: center;
+}
+
+.form-styling{
+	border-color: #d92027;
+	background-color: #f4ea8e !important;
+	border-width: medium;
+	border-radius: .25rem !important;
+	cursor: pointer;
+}
+
+.select-styling{
+	appearance: none;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+}
+
+.button-styling{
+	background-color: #f37121;
+	border-color: #d92027;
+	border-width: medium;
+	width: 30vw;
+}
+
+.button-styling:hover, .button-styling:focus{
+	background-color: #f37121;
+	border-color: #d92027;
+}
+
+.button-width{
+	width: 30vw !important;
+}
+
+.button-mission{
+	width: 5vw !important;
+}
+
+.block-styling{
+	border-color: #d92027;
+	border-style: solid;
+	border-width: medium;
+	border-radius: .25rem;
+}
+
+.block-margin{
+	margin-top: 1.25em;
+}
+
+.radio-flex{
+	display: flex;
+	vertical-align: baseline;
+}
+
+#button-margin-left{
+	margin-left: .25em;
+}
+
+#button-margin-right{
+	margin-right: .25em;
+}
+
+.qrcodediv{
+	position: relative;
+	display: inline-block;
+}
+
+.select-mission{
+	margin-top: 3vh !important;
+	margin-bottom: 3vh !important;
+}
+
+#block-mission{
+	background-color: #f37121;
+	width: 30vw;
+	padding: .375rem .75rem;
+	color: #fff;
+}
+
+.graph{
+	background-color: #f4ea8e;
+	width: 100%;
+	overflow-x: auto;
+	overflow-y: auto;
+	height: 100%;
+}
+
+.activity{
+	color: #fff;
+	background-color: #f37121;	
+	display: inline-grid;
+	margin-top: 3vh;
+	margin-bottom: 3vh;
+	margin-left: .5vw;
+	margin-right: .5vw;
+	width: 8rem;
+	height: 8rem;
+	border-color: #d92027;
+	border-style: solid;
+	border-width: medium;
+	border-radius: .25rem;
+}
+
+.header-text{
+	font-size: 1.5rem;
+}
+
+
+
+@media screen and (max-width: 600px){
+	.button-styling{
+		width: 60vw;
+	}
+	.button-width{
+		width: 60vw !important;
+	}
+	.button-mission{
+		width: 12vw !important;
+	}
+}

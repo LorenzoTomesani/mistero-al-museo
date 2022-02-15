@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Editor's page</title>
+	<!-- CSS only -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+	
+	<!-- JS, Popper.js, and jQuery -->
+	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> 
+	<link rel="stylesheet" type="text/css" href="styleEditor.css">
+	
+</head>
+<body>
+	
+	<div id="editor">
+		
+		<div class="jumbotron text-center" id = "jumbotron" v-on:click = "showUpButton(), hideModal(), closeQrCode(), hideEdit(), hideInput(), hideSelect(), hideMissionBlock(), hideActivityBlock(), clearValues(), hideDownButton(), hideGraph()">
+			{{ jumbotronMessage }}
+		</div>
+		
+		<div class = "container text-center" id = "choose_button">
+			
+			<div class = "btn-group-vertical" v-if = "isVisibleUpButton">
+				<div class = "mt-3">
+					<button class = "btn btn-dark button-styling" v-on:click = "hideUpButton(), showDownButton(), showInput()">Aggiungi storia</button>
+				</div>
+				<div class = "mt-3">
+					<button class = "btn btn-dark button-styling" v-on:click = "hideUpButton(), showEdit()">Modifica storia</button>
+				</div>				
+				<div class = "mt-3">
+					<button class = "btn btn-dark button-styling" v-on:click = "hideUpButton(), showModal(2)">Duplica / Elimina Storia</button>
+				</div>				
+				<div class = "mt-3">
+					<button class = "btn btn-dark button-styling" v-on:click = "hideUpButton(), showModal(3)">Genera qr code</button>
+				</div>			
+			</div>
+			
+			<div v-if = "isVisibleModal">
+				<h5 class="text-center">Scegli storia</h5>	
+				<div class="form-group text-center" v-if="ShowRadio">
+					<label for="saved">
+					<input type="radio" id="saved" name="storyType" v-model="TypeStories" v-bind:value="0" value="0">Storie Pubblicate</label>				
+					<label for="published">
+					<input type="radio" id="published" name="storyType" v-model="TypeStories" v-bind:value="1" value="1">Storie Salvate</label>
+				</div>		
+				<div class="form-group text-center" v-if="ShowRadioDelete">
+					<label for="saved"><input type="radio" id="saved" name="storyType" v-model="isDelete" v-bind:value="1" value="1">Elimina</label>				
+					<label for="published"><input type="radio" id="published" name="storyType" v-model="isDelete" v-bind:value="0" value="0">Duplica</label>
+				</div>			
+				<div class="form-group" v-if="isPublishedStories || TypeStories==0">
+					<label class="text-center">Storie Pubblicate</label>
+					<select class="form-control col text-center form-styling select-styling"  v-model="PublishedStoryChosen" >						
+						<option v-if = "operationIndex == 3" v-for="item in publishedStoriesQrNames"  v-bind:value="item">{{item}}</option>
+						<option v-if = "!(operationIndex == 3)" v-for="item in PublishedStories"  v-bind:value="item">{{item}}</option>
+					</select>
+				</div>
+				<div class="form-group" v-if= "isSavedStories || TypeStories==1">
+					<label class="text-center">Storie Salvate</label>
+					<select class="form-control col text-center form-styling select-styling" v-model="SavedStoryChosen">						
+						<option v-for="item in SavedStories" :value="item">{{item}}</option>
+					</select>
+				</div>	
+				<div class = "mt-3">
+					<button type="button" class="btn btn-dark button-styling" v-on:click="nextOperation()">Avanti</button>
+				</div>
+				<div class = "mt-3">
+					<button type="button" class="btn btn-dark button-styling" v-on:click="hideModal(), showUpButton()">Indietro</button>
+				</div>
+			</div>
+			
+			<div class = "justify-content-center" v-if="isQrCodeVisible">
+				<div>
+					<qrcodediv class = "qrcodediv" :val = "'http://site192031.tw.cs.unibo.it/player?story='+ PublishedStoryChosen">
+				</qrcodediv>
+				</div>
+				<div class = "mt-3">
+					<button type="button" class="btn btn-dark button-styling" v-on:click="closeQrCode(), showUpButton()">Torna indietro</button>	
+				</div>			
+			</div>			
+			
+			<div v-if="openGraph">
+				<div class = "row justify-content-center">
+					<div class = "col-lg-md-sm-6 float-left">
+						<div class="text-center header-text"> Storie </div>				
+						<div v-for = "(stories, index) in SavedStories" :key="index">
+							<button type = "button" class="btn btn-dark float-left button-styling mt-3" v-on:click="getStory(stories)">{{stories}}</button>
+						</div>
+					</div>
+					<div class = "col-lg-md-sm-6 float-right ml-3" v-if = "isVisibleGraph">
+						<div class = "text-center header-text"> Missioni </div>
+						<div v-for = "missions in editMissionStories" :key="missions">
+							<div class="float-right block-styling mt-3" id = "block-mission">{{missions}}</div>
+						</div>
+					</div>
+				</div>
+				<div  v-if = "isVisibleGraph" class = "row justify-content-center mt-5">
+					<div class = "col-10 graph block-styling" id="graph">
+					</div>	
+				</div>
+				<div class = "row justify-content-center">
+					<div class="mt-5">
+						<hr v-if = "selectedType == 2">
+						<div class = "row justify-content-center" v-if="selectedType == 2">
+							<div class = "form-group">
+								<label for = "group">Seleziona il gruppo:</label>
+								<select role = "listbox" class = "form-control text-center form-styling select-styling" id="group" onchange="setGroup()">
+									<option >gruppo1</option>	
+									<option >gruppo2</option>	
+									<option >gruppo3</option>	
+									<option >gruppo4</option>
+								</select>
+							</div>					
+						</div>
+						<hr>
+						<div class = "form-group mt-3">
+							<label for = "copyActivity">L'id dell'attività che vuoi copiare:</label>
+							<input type="text" class = "form-control form-styling" id = "copyActivity" v:on-keypress = "onlyNumber(event)">
+						</div>
+						<div class = "mt-3">
+							<button type="button" class="btn btn-dark float-center button-styling button-width" v-on:click="copyActivity()">Copia</button>
+						</div>
+						<div class = "form-group mt-3">	
+							<label for = "pasteActivity">La posizione dove incollare l'attività:</label>
+							<input type="text" class = "form-control form-styling" id = "positionActivity" v:on-keypress = "onlyNumber(event)">
+						</div>
+						<div class = "mt-3">
+							<button type="button" class="btn btn-dark float-center button-styling button-width" v-on:click="pasteActivity()">Incolla</button>
+						</div>
+						<hr>
+						<div class = "form-group mt-3">
+							<label for = "moveAct">L'id attività che deve essere spostata:</label>
+							<input class = "form-control form-styling" id = "moveAct" v:on-keypress = "onlyNumber(event)" required>
+							<label for = "toAct">L'id attività che deve essere preceduta:</label>
+							<input class = "form-control form-styling" id = "toAct" v:on-keypress = "onlyNumber(event)" required>	
+						</div>
+						<div class = "mt-3">
+							<button type="button" id="move-number-activity-to" class="btn btn-dark float-center button-styling button-width" v-on:click="moveActivity()">Sposta</button>
+						</div>	
+						<hr>
+						<div class = "form-group mt-3">
+							<label for = "choose-mission">Seleziona la missione da copiare:</label>
+							<select role = "listbox" class = "form-control col text-center form-styling select-styling" id = "choose-mission">
+								<option v-for = "missions in editMissionStories"  :key="missions">{{missions}}</option>
+							</select>					
+						</div>
+						<div class = "mt-3">
+							<button type="button" id="move-number-activity-to" class="btn btn-dark float-center button-styling button-width" v-on:click="takeMission()">Copia</button>	
+						</div>
+						<div class = "form-group mt-3">
+							<label for = "pasteMission">Incolla missione:</label>
+						</div>
+						<div class = "mt-3">
+							<button type="button" id="pasteMission" class="btn btn-dark float-center button-styling button-width" v-on:click="pasteMission()">Incolla</button>
+						</div>
+						<hr>
+						<div class = "form-group mt-3">
+							<label for = "deleteMission">Elimina missione:</label>								
+							<input type="text" class = "form-control form-styling" id = "deleteMission" v:on-keypress = "onlyNumber(event)">
+						</div>
+						<div class = "mt-3">
+							<button type="button" id="buttonDeleteMission" class="btn btn-dark float-center button-styling button-width" v-on:click="deleteMission()">Elimina</button>
+						</div>
+						<hr>
+						<div class = "form-group mt-3">
+							<label for = "deleteActivity">Elimina attività:</label>					
+							<input type="text" class = "form-control form-styling" id = "deleteActivity" v:on-keypress = "onlyNumber(event)">
+						</div>
+						<div class = "mt-3">
+							<button type="button" id="buttonDeleteActivity" class="btn btn-dark float-center button-styling button-width" v-on:click="deleteActivity()">Elimina</button>	
+						</div>
+						<hr>
+						<div class="mt-3">							
+							<button type = "button" class = "btn btn-dark float-center button-styling button-width" v-on:click = "showDownButton(), showInput(), setValueStory(), emptyGraph()">Modifica</button>
+						</div>
+						<div class = "mt-3">
+							<button type = "button" class = "btn btn-dark float-center button-styling button-width" v-on:click = "hideEdit(), showUpButton(), hideGraph()">Torna Indietro</button>
+						</div>		
+					</div>
+				</div>
+			</div>	
+			
+			<div v-if = "isVisibleInput">
+				<div class = "row justify-content-center">
+					<div class = "form-group" v-if="!editing">
+						<label for = "story-id">Inserisci l'id della storia</label>
+						<input type="text" class = "form-control form-styling" id = "story-id" placeholder="ID della storia" v-model.trim = "storyData.idStory" v-on:keypress = "isDisabledInputButton">
+					</div>
+				</div>
+				<div class = "row justify-content-center">
+					<div class = "form-group">
+						<label for = "story-title">Inserisci il nome della storia</label>
+						<input type="text" class = "form-control form-styling" id = "story-title" placeholder="Titolo" v-model.trim = "storyData.storyTitle" v-on:keypress = "isDisabledInputButton">
+					</div>
+				</div>
+				<div class = "row justify-content-center">
+					<div class = "form-group">
+						<label for = "story-decription">Inserisci la descrizione della storia</label>
+						<input type="text" class = "form-control form-styling" id = "story-description" placeholder="Descrizione" v-model.trim = "storyData.storyDescription" v-on:keypress = "isDisabledInputButton">
+					</div>
+				</div>
+				<div class = "row justify-content-center" v-if="editing == false">
+					<div class = "form-group">
+						<label for = "story-background">Carica il background della storia</label>
+						<input type="file" class = "form-control-file" id = "story-background" accept="image/png, image/jpeg">
+					</div>
+				</div>
+				<div class = "row justify-content-center">
+					<p>Questa Storia è accessibile?</p>
+					<div class = "form-check">
+						<input class = "form-check-label" type = "radio" name= "activityAccessibility" id = "activity-accessibility-true" value =true v-model = "storyData.accessibility">
+						<label class = "form-check-label pl-2" for = "activity-accessibility-true">Sì</label>
+					</div>
+					<div class = "form-check">
+						<input class = "form-check-label" type = "radio" name= "activityAccessibility" id = "activity-accessibility-false" value =false v-model = "storyData.accessibility">
+						<label class = "form-check-label pl-2" for = "activity-accessibility-false">No</label>
+					</div>
+				</div>
+				<div class = "row justify-content-center" v-if = "inputFields || editing">
+					<button class = "btn btn-dark float-left button-styling select-styling button-width" v-on:click = "saveFile(), hideInput(), showSelect()">Avanti</button>
+				</div>
+			</div>
+			
+			<div v-if = "isVisibleSelect">
+				<div class = "row justify-content-center">
+					<div class = "form-group">
+						<label for = "select-age">Seleziona l'età:</label>
+						<select role = "listbox" class = "form-control col text-center form-styling select-styling" id = "select-age" v-model = "storyData.selectedAge">
+							<option value="0">7-10</option>
+							<option value="1">11-14</option>
+							<option value="2">15-18</option>
+						</select>
+					</div>
+				</div>
+				<div class = "row justify-content-center">
+					<div class = "form-group">
+						<label for = "select-type">Seleziona la tipologia</label>
+						<select role = "listbox" class = "form-control col text-center form-styling select-styling" id = "select-type" v-model = "storyData.selectedType" >
+							<option value="0">Single Player</option>
+							<option value="1">Gruppo 2-5 persone</option>
+							<option value="2">Classe</option>
+						</select>
+					</div>
+				</div>
+				<div class = "row justify-content-center">
+					<button class = "btn btn-dark float-left button-styling button-width" v-if="editing==false" v-on:click = "hideSelect(), showMissionBlock(), pushNewMission()">Avanti</button>	
+						<button class = "btn btn-dark float-left button-styling button-width" v-if="editing" v-on:click = "hideDownButton(), hideSelect(), showActivityBlock(), showType()">Avanti</button>	
+				</div>
+			</div>
+			
+			<div v-if = "isVisibleMissionBlock">
+				<div class = "row justify-content-center">
+					<p>Inserisci le missioni presenti nella storia</p>
+				</div>			
+				<div v-for = "(mission, index) in inputMissions">
+					<div class = "row justify-content-center">
+						<div class = "input-group block-margin w-50">								
+							<div class = "input-group-btn">
+								<button class = "btn btn-dark float-left btn-default button-styling button-mission" id = "button-margin-right" v-on:click = "removeMission(index)">-</button>
+							</div>
+							<input type="text" class = "form-control form-styling" placeholder="inserisci missione" v-model.trim = "mission.storyMission">
+							<div class = "input-group-btn">
+								<button class = "btn btn-dark float-left btn-default button-styling button-mission" id = "button-margin-left" v-on:click = "pushNewMission()">+</button>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class = "row justify-content-center">
+					<button class = "btn btn-dark float-left button-styling button-width block-margin" v-on:click = " isDisabledMissionButton(), copyMissions(), hideDownButton(), hideMissionBlock(), showActivityBlock(), pushNewActivity(index)">Avanti</button>
+				</div>
+			</div>
+			
+			<div v-if = "isVisibleActivityBlock">
+				<div v-for ="(activity, index) in storyData.storyActivities">
+					<div v-if = "isVisibleActivity[index]">
+						<div class = "row justify-content-center">
+							<p>Attività id: {{index}}</p>
+						</div>
+						<hr>				
+						<div class = "row justify-content-center" v-if = "areMissedForms">
+							<p>Inserisci i dati delle attività:</p>
+						</div>
+						<div class = "row justify-content-center">
+							<ul>
+								<li v-for = "missed in missedForms">{{missed}}</li>
+							</ul>
+						</div>
+						<div class = "row justify-content-center">
+							<div class = "form-group">
+								<label for = "select-mission">Seleziona la missione a cui appartiene l'attività:</label>
+								<select role = "listbox" class = "form-control col text-center form-styling select-styling" id = "select-mission" v-model = "activity.activityMission">
+									<option v-for = "(mission, index) in storyData.storyMissions" v-bind:value="mission">{{mission}}</option>
+								</select>
+							</div>
+						</div>
+						<hr>
+						<div class = "row justify-content-center">
+							<div class = "col-4">
+							</div>
+							<div class = "form-group col-4">
+								<p>Seleziona il tipo di attività:</p>
+								<div class = "form-check radio-flex">
+									<input class = "form-check-label" type= "radio" name= "activityTypes" id = "activity-type-0" value = "0" v-model = "activity.type" v-on:click = "showActivityText(index)">
+									<label class = "form-check-label pl-2" for = "activity-type-0">Spiegazione</label>
+								</div>
+								<div class = "form-check radio-flex" v-if = "index != 0">
+									<input class = "form-check-label" type= "radio" name= "activityTypes" id = "activity-type-1" value = "1" v-model = "activity.type" v-on:click = "showActivityQuestion(index)">
+									<label class = "form-check-label pl-2" for = "activity-type-1">Domanda con uno o più valori</label>
+								</div>
+								<div class = "form-check radio-flex" v-if = "index != 0">
+									<input class = "form-check-label" type= "radio" name= "activityTypes" id = "activity-type2" value = "2" v-model = "activity.type" v-on:click = "showActivityOpen(index)">
+									<label class = "form-check-label pl-2" for = "activity-type2">Domanda aperta(immagine o testo)</label>
+								</div>						
+								<div class = "form-check radio-flex" v-if="!(storyData.accessibility == true) && (index != 0)">
+									<input class = "form-check-label" type= "radio" name= "activityTypes" id = "activity-type2" value = "3" v-model = "activity.type" v-on:click = "showActivityWidget(index)">
+									<label class = "form-check-label pl-2" for = "activity-type3">Memory</label>
+								</div>						
+								<div class = "form-check radio-flex" v-if = "index != 0">
+									<input class = "form-check-label" type= "radio" name= "activityTypes" id = "activity-type2" value = "4" v-model = "activity.type" v-on:click = "showActivityText(index)">
+									<label class = "form-check-label pl-2" for = "activity-type2">Attività Finale</label>
+								</div>
+							</div>
+							<div class = "col-4">
+							</div>
+						</div>
+						<div class = "row justify-content-center" v-if = "isVisibleActivityText">
+							<div class = "form-group">
+								<label class ="text-center" for = "activity-text">Inserisci il testo</label>
+								<textarea class = "form-control form-styling textarea"  id = "activity-text " placeholder="testo" v-model.trim = "activity.text">	</textarea>									
+								<div  v-if="activity.type==0" class = "mt-3">
+									<div class = "form-check radio-flex">
+										<input class = "form-check-label" type = "radio" name= "activityOpen" id = "activity-open-0" v-bind:value = "true" v-model="imageNeeded">
+										<label class = "form-check-label pl-2" for = "activity-open-0">Immagine</label>
+									</div>
+									<div class = "form-check radio-flex">
+										<input class = "form-check-label" type = "radio" name= "activityOpen" id = "activity-open-1" v-bind:value = "false" v-model="imageNeeded">
+										<label class = "form-check-label pl-2" for = "activity-open-1">Senza immagine</label>
+									</div>								
+									<div class = "form-group" v-if="imageNeeded">
+										<label>Inserisci l'immagine </label> <br>									
+										<input type="file" accept="image/*" id = "story-images" placeholder="Inserisci immagine">	
+									</div>			
+									<div class = "form-group" v-if="imageNeeded">
+										<label>Descrivi l'immagine </label>											
+										<input  class = "form-control form-styling" type="text" placeholder="Descrivi l'immagine" v-model.trim="activity.alt">
+									</div>					
+								</div>
+							</div>
+						</div>
+						<div v-if = "isVisibleActivityQuestion">
+							<div class = "row justify-content-center">
+								<div class = "form-group">
+									<label for = "activity-text">Inserisci il testo della domanda</label>
+									<input type="text" class = "form-control form-styling" id = "activity-text" v-model.trim = "activity.request">
+								</div>
+							</div>						
+							<div class = "row justify-content-center">
+								<label for="typeAnswer"> Seleziona il tipo di risposta </label>
+								<div class = "form-check">
+									<input class = "form-check-label" id="typeAnswer" type= "radio" name= "activityType" value = "1" v-model = "onlyOne">
+									<label class = "form-check-label pl-2">Un solo valore</label>
+								</div>
+								<div class = "form-check">
+									<input class = "form-check-label" type= "radio" name= "activityType" value = "0" v-model = "onlyOne">
+									<label class = "form-check-label pl-2">Tre valori</label>
+								</div>
+							</div>
+							<div class = "row justify-content-center" v-if="onlyOne == 1">
+								<div class = "form-group row w-50">
+									<label for = "question-value">Inserisci la risposta</label>
+									<input type="text" class = "form-control form-styling"  v-model.trim = "activity.value">
+								</div>
+							</div>						
+							<div v-if="onlyOne == 0">
+								<div class = "row justify-content-center">
+									<div class = "form-group w-50">
+										<label for = "question-value">Inserisci il primo valore</label>
+										<input type="text" class = "form-control form-styling" v-model.trim = "activity.firstValue">
+									</div>	
+								</div>
+								<div class = "row justify-content-center">
+									<div class = "form-group w-50">
+										<label for = "question-value">Inserisci il secondo valore</label>
+										<input type="text" class = "form-control form-styling" v-model.trim = "activity.secondValue">
+									</div>
+								</div>
+								<div class = "row justify-content-center">
+									<div class = "form-group w-50">
+										<label for = "question-value">Inserisci il Terzo valore</label>
+										<input type="text" class = "form-control form-styling" v-model.trim = "activity.thirdValue">
+									</div>	
+								</div>
+								<div class = "row justify-content-center">
+									<div class = "form-group w-50">
+										<label for = "question-value">Inserisci valore corretto (dei tre sopra)</label>
+										<input type="text" class = "form-control form-styling" v-model.trim = "activity.rightAnswer">
+									</div>
+								</div>
+							</div>
+						</div>					
+						<div class = "row justify-content-center" v-if = "isVisibleActivityOpen">
+							<div class = "form-group">
+								<label for = "activity-open">Inserisci il testo della domanda </label>
+								<input type="text" class = "form-control form-styling" id = "activity-open" v-model = "activity.request">
+								<div class = "form-check radio-flex mt-3">
+									<input class = "form-check-label" type = "radio" name= "activityOpen" id = "activity-open-0" value = "image" v-model = "activity.accept">
+									<label class = "form-check-label pl-2" for = "activity-open-0">Immagine</label>
+								</div>
+								<div class = "form-check radio-flex">
+									<input class = "form-check-label" type = "radio" name= "activityOpen" id = "activity-open-1" value = "text" v-model = "activity.accept">
+									<label class = "form-check-label pl-2" for = "activity-open-1">Testo</label>
+								</div>
+							</div>
+						</div>
+						<hr v-if="activity.type == 3">
+						<div class = "row justify-content-center" v-if="editing==true && showEditWidget">
+							<label for = "activity-open">Immagini già presenti: rifare il widget?</label>
+							<div class = "form-check">
+								<input class = "form-check-label" type = "radio" name= "openWidgetEdit" id = "openWidgetEdit-1" v-bind:value = "true" v-model = "editWidget">
+								<label class = "form-check-label pl-2" for = "openWidgetEdit-1">Sì</label>
+							</div>
+							<div class = "form-check">
+								<input class = "form-check-label" type = "radio" name= "openWidgetEdit" id = "openWidgetEdit-0" v-bind:value = "false" v-model = "editWidget">
+								<label class = "form-check-label pl-2" for = "openWidgetEdit-0">No</label>
+							</div>
+						</div>
+						<div class = "row justify-content-center" v-if="(activity.type == 3 && !editing) || (editWidget && editing)">	
+							<div v-if="activity.type == 3">
+								<label for="back-card">Selezione il retro delle:</label>
+								<input type="file" class = "form-control-file" id = "back-card" accept="image/png, image/jpeg">	
+								<hr>						
+								<label for="back-card">Seleziona le altre carte (10):</label>
+								<input type="file" class = "form-control-file" id = "cards" accept="image/png, image/jpeg" multiple>	
+							</div>
+						</div>
+						<hr v-if="!(activity.type == 4) && storyData.selectedType != 2">
+						<div class = "row justify-content-center" v-if="!(activity.type == 4) && storyData.selectedType != 2">
+							<div class = "form-group">
+								<label for = "activity-next">Inserisci l'attività successiva (id):</label>
+								<input type="text" class = "form-control form-styling" id = "activity-next" placeholder="Attività successiva" v-model = "activity.nextActivity" v-on:keypress = "onlyNumber(event)">
+							</div>
+						</div>
+						<hr v-if="storyData.selectedType == 2">
+						<div v-if="storyData.selectedType== 2">
+							<div  class = "row justify-content-center">
+								<p>Ordina le attività in modo diverso (virgola per separarle)</p><br>
+							</div>
+							<div  class = "row justify-content-center">
+								<div class = "form-group">
+									<label for="gruppo1"> Gruppo1 </label> 								
+									<input type="text" class = "form-control form-styling" id = "gruppo1" v-model.trim="storyData.gruppo1">
+								</div>
+							</div>
+							<div  class = "row justify-content-center">
+								<div class = "form-group">
+									<label for="gruppo2"> Gruppo2 </label>								
+								<input type="text" class = "form-control form-styling" id = "gruppo2" v-model.trim="storyData.gruppo2">
+								</div>
+							</div>
+							<div  class = "row justify-content-center">
+								<div class = "form-group">
+									<label for="gruppo3"> Gruppo3 </label>								
+									<input type="text" class = "form-control form-styling" id = "gruppo3" v-model.trim="storyData.gruppo3">
+								</div>
+							</div>
+							<div  class = "row justify-content-center">
+								<div class = "form-group">
+									<label for="gruppo4"> Gruppo4 </label>								
+									<input type="text" class = "form-control form-styling" id = "gruppo4" v-model.trim="storyData.gruppo4">
+								</div>
+							</div>
+						</div>
+						<hr v-if="activity.type ==1 || activity.type == 3">
+						<div class = "row justify-content-center" v-if="activity.type ==1 || activity.type == 3">
+							<div class = "form-check">						
+								<label class = "form-check-label" for = "activity-last-true">Punteggio con risposta giusta</label>
+								<input type="number" step="1.0" min="0" value ="0" class = "form-control form-styling" v-model.trim = "activity.points">
+							</div>
+						</div>	
+						<hr>			
+						<div class = "row justify-content-center">
+							<button class = "btn btn-dark float-left button-styling button-width block-margin" v-on:click = "checkActivityForms(index)" id="prova">Avanti</button>
+						</div>
+						<div class = "row justify-content-center">
+							<button class = "btn btn-dark float-left button-styling button-width block-margin" v-on:click = "clearValues(), hideActivityBlock(), showUpButton()">Indietro</button>
+						</div>
+						<div class = "row justify-content-center" v-if = "createStoryButton && editing == false">
+							<button class = "btn btn-dark float-right button-styling button-width block-margin" v-on:click = "createStory(0), hideActivity(index), hideActivityBlock(), showUpButton(), clearActivityValues(),clearValues()">Crea storia</button>
+						</div>
+						<div class = "row justify-content-center" v-if = "createStoryButton && editing == false">
+							<button class = "btn btn-dark float-right button-styling button-width block-margin" v-on:click = "createStory(1), hideActivity(index), hideActivityBlock(), showUpButton(), clearActivityValues(),clearValues()">Salva storia</button>
+						</div>						
+						<div class = "row justify-content-center" v-if = "createStoryButton && editing == true">
+							<button class = "btn btn-dark float-right button-styling button-width block-margin" v-on:click = "SaveStory(0), hideActivity(index), hideActivityBlock(), showUpButton(), clearActivityValues(),clearValues()">Salva</button>
+						</div>
+						<div class = "row justify-content-center" v-if = "createStoryButton && editing == true">
+							<button class = "btn btn-dark float-right button-styling button-width block-margin" v-on:click = "SaveStory(1), hideActivity(index), hideActivityBlock(), showUpButton(), clearActivityValues(),clearValues()">Pubblica</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<div class = "row justify-content-center" v-if = "isVisibleDownButton">
+				<button class = "btn btn-dark float-left button-styling button-width block-margin" v-on:click = "hideDownButton(), showUpButton(), hideInput(), hideSelect(), hideMissionBlock()">Indietro</button>	
+			</div>	
+		</div>
+		<hr class = "mt-5">
+	</div>
+	
+	<script type="application/javascript" src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+	<script type="application/javascript" src="https://unpkg.com/@chenfengyuan/vue-qrcode@1.0.2/dist/vue-qrcode.js"></script>
+	<script type="text/javascript" src="https://unpkg.com/axios/dist/axios.min.js"></script>
+	<script type="application/javascript"> Vue.component(VueQrcode.name, VueQrcode);</script>
+	<script type="text/javascript" src = "editorScript.js"></script>
+</body>
+</html>

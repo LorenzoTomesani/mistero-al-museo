@@ -1,0 +1,24 @@
+{
+  "version": "1.0.0",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "copy-dir": "^1.3.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "express-fileupload": "^1.2.0",
+    "path": "^0.12.7",
+    "rimraf": "^3.0.2",
+    "serve-favicon": "^2.5.0",
+    "vue": "^2.6.12"
+  },
+  "devDependencies": {},
+  "name": "html",
+  "description": ""
+}

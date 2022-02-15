@@ -1,0 +1,5 @@
+- controllare valori inseriti da index.html e trovare 
+  file giusto (es: galaxy00.json);
+- creare Modal (creare metodo per farlo comparire 
+  solo nel caso in cui nel json type=0);
+- spostarsi tra le attività (metodo next). 

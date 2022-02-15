@@ -1,0 +1,73 @@
+{
+	"title": "Pokemon",
+	"desc": "A story about pokemons",
+	"storyMissions": [
+		"mission1",
+		"mission2"
+	],
+	"background": "Logo Pokemon.png",
+	"activities": [
+		{
+			"idActivity": 0,
+			"activityMission": "mission1",
+			"type": "0",
+			"text": "Answer questions about pokemons",
+			"alt": "Ash trainer",
+			"nextActivity": "1",
+			"urlImage": "399px-Ash_JN.png"
+		},
+		{
+			"idActivity": 1,
+			"activityMission": "mission2",
+			"type": "1",
+			"request": "In the beginning of the episode, Ash catches what Pokemon?",
+			"firstValue": "Pikachu",
+			"secondValue": "Caterpie",
+			"thirdValue": "Slowpoke",
+			"rightAnswer": "Caterpie",
+			"nextActivity": "2",
+			"points": "10"
+		},
+		{
+			"idActivity": 2,
+			"type": "2",
+			"request": "Upload an image of your favourite pokemon.",
+			"accept": "image",
+			"nextActivity": "3",
+			"activityMission": "mission1"
+		},
+		{
+			"idActivity": 3,
+			"type": "1",
+			"request": "This Pokemon has a flame on its tail, and if it goes out, it won't survive. It is orange and is known as a lizard Pokemon. It is a fire type. Who's that Pokemon?",
+			"value": "Charmander",
+			"nextActivity": "4",
+			"activityMission": "mission1",
+			"points": "5"
+		},
+		{
+			"idActivity": 4,
+			"type": "2",
+			"accept": "text",
+			"request": "Write evolutions of Eevee that you know",
+			"nextActivity": "5",
+			"activityMission": "mission2"
+		},
+		{
+			"idActivity": 5,
+			"type": "3",
+			"text": "Find matching cards",
+			"nextActivity": "6",
+			"points": "15",
+			"activityMission": "mission1",
+			"widget": "widget0.json"
+		},
+		{
+			"idActivity": 6,
+			"type": "4",
+			"text": "The end."
+		}
+	],
+	"accessibility": "true",
+	"totalActivity": 7
+}

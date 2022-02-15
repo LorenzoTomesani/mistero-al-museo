@@ -1,0 +1,153 @@
+AMBIENTE AUTORE:
+
+caricare attività
+url: /activity
+metodo: GET
+output: json contente le attività
+
+caricare le storie
+url: /stories/retired 
+metodo: GET
+parametri: nessuno
+output: -200: json con elenco delle storie ritirate indicando nome e immaggine per ognuna
+
+caricare le storie
+url: /stories/published
+metodo: GET
+parametri: nessuno
+output: -200: json con elenco delle storie pubblicata indicando nome e immaggine per ognuna
+
+
+salvare una storia
+url: /story/{path}/{id}
+metodo: POST
+parametri: nome della storia
+input: json con elementi della storia da salvare
+output: -200: crea un file json nella cartella storie path
+        -400: caratteri non utilizzabili
+
+salvare una storia
+url: /story/{path}/{id}/img
+metodo: POST
+parametri: percorso e nome della storia
+input: immagine da salvare
+output: -200: salva l'immagine nella cartella storie path
+        
+
+caricare una storia
+url: /story/{path}/{id}
+metodo: GET
+parametri: nome della storia
+input:  
+output: -200: modifica la storia
+        -404: storia non trovata
+
+duplica una storia
+url: /story/{path}/{id}
+metodo: PUT
+parametri: nome della storia
+input:
+output: -200: duplicazione completata
+        -404: storia non trovata
+        -400: caratteri non utilizzabili
+
+pubblicazione di una storia
+url: /story/retired/{id}
+metodo: POST
+parametri: nome della storia
+input:
+output: -200: pubblicazione completata
+        -404: storia non trovata oppure già pubblicata
+
+ritiro di una storia
+url: /story/published/{id}
+metodo: POST
+parametri: nome della storia
+input:
+output: -200: ritiro completato
+        -404: storia non trovata oppure già ritirata
+
+eliminazione storia
+url: /story/{path}/{id}
+metodo: DELETE
+parametri: nome della storia
+input:
+output: -200: elimiazione completata
+        -404 storia non trovata
+
+AMBIENTE VALUTATORE:
+
+ricevimento e tracciamento dello stato della partita
+url: /player/status/
+metodo: GET
+parametri: nessuno
+input: 
+output: -200: lista dello stato dei player attivi o una lista vuota nel caso nessuno stia giocando
+
+Spedisce ai singoli giocatori le offertediaiuto
+url: /player/{id}/help/
+metodo: POST
+parametri: id del giocatore
+input: messaggio di aiuto
+output: -200: mex spedito
+        -404: id non trovato
+        -400: caratteri non utilizzabili
+
+suggerimenti
+url: /player/{id}/tip/
+metodo: POST
+parametri: id del giocatore
+input: messaggio di aiuto
+output: -200: mex spedito
+        -404: id non trovato
+        -400: caratteri non utilizzabili
+
+valutazioni fornite dal valutatore
+url: /player/{id}/valutate/
+metodo: POST
+parametri: id del giocatore
+input: messaggio di aiuto
+output: -200: mex spedito
+        -404: id non trovato
+        -400: caratteri non utilizzabili
+
+Gestiscele chat tra valutatore egiocatore
+url: /player/{id}/chat/
+metodo: POST
+parametri: id
+input: testo del messaggio
+output: -200: mex consegnato
+        -404: id non trovato
+        -400: caratteri non utilizzabili
+
+tramite la get dell'autore prendiamo la storia poi assegniamo i punteggi
+url: /story/game/{id}
+metodo: POST
+parametri: identificativo della partita
+input: json con elementi della storia da salvare
+output: -200: crea un file json nella cartella game
+        -400: caratteri non utilizzabili
+
+PLAYER:
+
+init player su server
+url: /player/{id}
+metodo: POST
+parametri: identificativo del player
+outpu: -200 ok inizializza variabili server
+
+chiede al server la storia da giocare
+url: /story/game/{id}
+metodo: GET 
+parametri: 
+input: 
+output: -200: ottiene la storia da giocare
+        -404: not found
+
+manda lo stato
+url: /player/{id}/status
+metodo: POST
+parametri: nome del player
+input: stato e richiesta di aiuto oppure no
+output: -200: ok
+        -400: caratteri non utilizzabili

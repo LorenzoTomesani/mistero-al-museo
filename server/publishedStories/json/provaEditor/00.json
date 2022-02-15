@@ -1,0 +1,50 @@
+{
+	"title": "provaEditor",
+	"desc": "prova di editazione e aggiunta di storie ",
+	"storyMissions": [
+		"missione 1",
+		"missione 2",
+		"missione 3",
+		"missione 4"
+	],
+	"background": "image_2021-01-21_11-24-56.png",
+	"activities": [
+		{
+			"idActivity": 0,
+			"activityMission": "missione 1",
+			"type": "0",
+			"text": "proviamo insieme editor",
+			"alt": "prova di immagine",
+			"nextActivity": "2",
+			"urlImage": "image_2020-09-07_18-24-13.png"
+		},
+		{
+			"idActivity": 1,
+			"activityMission": "missione 2",
+			"type": "1",
+			"request": "è la fine?",
+			"value": "no ovviamente",
+			"nextActivity": "3",
+			"points": "4"
+		},
+		{
+			"idActivity": 2,
+			"activityMission": "missione 3",
+			"type": "2",
+			"request": "ma funziona?",
+			"accept": "text",
+			"nextActivity": "1"
+		},
+		{
+			"idActivity": 3,
+			"type": "4",
+			"activityMission": "missione 4",
+			"text": "siamo arrivati al finale, sperando che funzionerà! "
+		},
+		{
+			"idActivity": 4
+		}
+	],
+	"accessibility": "false",
+	"totalActivity": 5
+}

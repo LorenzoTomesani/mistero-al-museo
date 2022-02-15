@@ -1,0 +1,317 @@
+{
+    "title": "Salviamo il pianeta Namaek",
+    "desc": "Benvenuto nell'avvincente vicenda di Jack, ricercatore esperto in progetti di salvataggio per pianeti in difficoltà",
+    "background": "galaxy.jpg",
+	"totalActivity": 40,
+	"accessibility": false,
+    "activities" : [
+
+    	{
+		    "idActivity": 0,
+		    "activityMission": "Introduzione",
+			"type": 0, 
+			"text": "Jack è un giovane ricercatore, esperto nello sviluppo di progetti ecosostenibili, che lavora per una società che si occupa della salvaguardia dello Spazio. La Terra è ormai da tempo un'oasi di serenità che si sostiene attraverso energia pulita e politiche ambientaliste sempre più innovative, e da ciò derivano anche delicate responsabilità. Aiuta Jack a fare le scelte giuste e stilare progetti originali per salvare altri pianeti ",
+			"nextActivity": 1
+		},
+		{
+		    "idActivity": 1,
+		    "activityMission": "L'incarico",
+			"type": 0, 
+			"text": " BART Hey Jack! Finalmente sei arrivato, la tua scrivania è piena di scartoffie, deve essere appena arrivato un lavoro grosso, ahahah.",
+			"nextActivity": 2
+		},
+		{
+		   "idActivity": 2,
+		   "activityMission": "L'incarico",
+			"type": 0, 
+			"text": " JACK Buongiorno anche a te Bart XD Beh speriamo che sia un lavoro serio, e non il solito facchinaggio di spazzatura spaziale... che poi c'è sempre da litigare con i marziani che cercano di vendere i presunti bulloni dell'Apollo11 al mercato nero... che rottura",
+			"nextActivity": 3
+		},
+		{
+		    "idActivity": 3,
+		    "activityMission": "L'incarico",
+			"type": 0, 
+			"text": "BIGLIETTO MISSIONE DALLA DIREZIONE Ciao Jack, ho deciso di affidarti l'incarico per un progetto urgente. Abbiamo ricevuto una richiesta di salvataggio da un pianeta nano che orbita intorno alla quarta Stella Polare, NAMAEK. A quanto pare una cattiva gestione del luogo li sta portando alla rovina, la popolazione è molto malata e il pianeta è avvolto da una densa nube nera che rende impossibile un intervento dalla terra. Ho bisogno che ti faccia un salto a dare un'occhiata e vedere cosa si può fare. Non per metterti ansia, ma stando alle ultime rilevazioni la situazione è grave, vicina al punto di non ritorno. Mi rimetto a te! So che puoi farcela. P.S. Mi sono preso la libertà di prenderti già il biglietto :D Firmato IL CAPO. ",
+			"nextActivity": 4
+		},
+		{
+		    "idActivity": 4,
+		    "activityMission": "L'incarico",
+			"type": 0, 
+			"text": "JACK Ah però! Non ci posso credere, il mio primo incarico decente!... ma non ho tempo per pensarci, devo partire subito per Namaek!",
+			"nextActivity": 5
+		},
+		{
+		    "idActivity": 5,
+		    "activityMission": "Namaek",
+			"type": 0,
+			"text": "HOSTESS Benvenuti su Namaek! I gentili passeggeri sono pregati di indossare le mascherine di protezione prima di lasciare il velivolo per motivi di sicurezza. Grazie della collaborazione. Tutto l'equipaggio vi augura un buon soggiorno su Namaek!",
+			"nextActivity": 6
+		},
+		{
+		    "idActivity": 6,
+		    "activityMission": "Namaek",
+			"type": 0,
+			"text": "Borbottio generale...",
+			"nextActivity": 7
+		},
+		{
+		    "idActivity": 7,
+		    "activityMission": "Namaek",
+			"type": 0,
+			"text": "PASSEGGERO Mascherina?! Ommioddio no... non mi dire che qui hanno ancora il covid-19... no ti prego NO, VOGLIO TORNARE INDIETROO",
+			"nextActivity": 8
+		},
+		{
+		    "idActivity": 8,
+		    "activityMission": "Namaek",
+			"type": 0,
+			"text": "HOSTESS Signore la prego si calmi! Non c'è nessun virus stia tranqullo, è solo che l'aria per qualche motivo ancora sconosciuto, è scura e poco respirabile. Pertanto fino a che non avremo scoperto di cosa si tratta riteniamo sia bene portare la mascherina per sicurezza.",
+			"nextActivity": 9
+		},
+		{
+		    "idActivity": 9,
+		    "activityMission": "Namaek",
+			"type": 0,
+			"text": "JACK Ah, insomma. Bene, ma non benissimo... BIP BIP BIP . Hanno solo aperto gli sportelli eppure il rilevatore della qualità dell'aria segna già livelli bassissimi. Il problema sembra grosso, mi conviene andare subito all'ufficio Direzioni Generali per le valutazioni ambientali",
+			"nextActivity": 10
+		},
+		{
+		    "idActivity": 10,
+		    "activityMission": "Namaek",
+			"type": 0,
+			"text": "Incontro di un passante lungo la strada.",
+			"nextActivity": 11
+		},
+		{
+		    "idActivity": 11,
+		    "activityMission": "Namaek",
+			"type": 2,
+		    "request": "PASSANTE Scusi, coff coff, vedo che ha l'uniforme della società scientifica terrestre, coff coff, sa per caso da cosa possa essere causata questa nebbia nera? coff coff, è veramente fastidiosa...",
+		    "accept": "text",
+			"nextActivity": 12
+		},
+		{
+		    "idActivity": 12,
+		    "activityMission": "Namaek",
+			"type": 0,
+			"text": "Un altro passante si avvicina...",
+			"nextActivity": 13
+		},
+		{
+		    "idActivity": 13,
+		    "activityMission": "Namaek",
+			"type": 2,
+		    "request": "Hey ragazzo, ma tu arrivi dalla terra! Coff coff, dai fammi vedere una foto di cosa si vede dalla finestra di casa tua, ti prego! Qua purtroppo solo nebbia nera... coff coff",
+		    "accept": "image",
+		    "nextActivity": 14
+		},		
+		{
+		    "idActivity": 14,
+		    "activityMission": "Namaek",
+			"type": 0,
+			"text": "JACK Ahh finalmente sono arrivato! coff coff, caspita l'aria è veramente irrespirabile...",
+			"nextActivity": 15
+		},
+		{
+		    "idActivity": 15,
+		    "activityMission": "Il primo passo",
+			"type": 0,
+			"text": "UFFICIO",
+			"nextActivity": 16
+		},
+		{
+		    "idActivity": 16,
+		    "activityMission": "Il primo passo",
+			"type": 0,
+			"text": "LELIA PRESIDENTESSA DI DIPARTIMENTO Salve Jack, la stavamo aspettando. Spero che possa aiutarci, la situazione è veramente critica. Come puoi vedere tu stesso sia dai grafici i livelli di PM10 sono altissimi e ben oltre il limite. Sappiamo bene quanto il particolato sia uno degli inquinanti atmosferici che provoca più danni alla salute degli abitanti e può avere effetti sul clima globale... Abbiamo provato con proteste e manifestazioni per farci sentire dai poteri forti e da chi ha in mano le politiche di questo nostro mondo, ma non abbiamo ricevuto molta risposta. Ognuno persegue i propri interessi, no? ",
+			"nextActivity": 17
+		},
+		{
+		    "idActivity": 17,
+		    "activityMission": "Il primo passo",
+			"type": 0,
+			"text": "JACK Ma è terribile! Il limite giornaliero di PM10 è di 50 microgrammi/m³ come è possibile che qui sia 10 volte tanto? Rischiate la vita, si rende conto?!",
+			"nextActivity": 18
+		},
+		{
+		    "idActivity": 18,
+		    "activityMission": "Il primo passo",
+			"type": 0,
+			"text": "LELIA PRESIDENTESSA DI DIPARTIMENTO Mi rendo conto Jack, mi dispiace, le assicuro che ho fatto tutto ciò che era in mio potere. Ho contattare la Terra era la mia ultima risorsa, la prego, ci aiuti a risolvere questa situazione, cosa possiamo fare perchè i valori tornino alla normalità?",
+			"nextActivity": 19
+		},
+		{   
+		    "idActivity": 19,
+		    "activityMission": "Il primo passo",
+			  "type": 1,
+		    "request": "Cosa si può cominciare a fare per ridurre i livelli di PM10 nell'aria di Namaek?",
+		    "firstValue" : "Diminuire i posti di lavoro",
+		    "secondValue" : "Promuovere modelli di mobilità alternativi",
+		    "thirdValue" : "Costruire dormitori nelle fabbriche",
+		    "rightAnswer" : "Promuovere modelli di mobilità alternativi",
+			"nextActivity": 20,
+			"points":"3"
+      
+		},	
+		{
+		    "idActivity": 20,
+		    "activityMission": "Il primo passo",
+			"type": 0,
+			"text": "LELIA PRESIDENTESSA DI DIPARTIMENTO Mi sembra un'ottima idea per cominciare, cosa propone nello specifico?",
+			"nextActivity": 21
+		},
+		{
+		    "idActivity": 21,
+		    "activityMission": "Il primo passo",
+			"type": 2,
+		    "request": "Cosa proponi come modello di mobilità alternativo? Con quali argomentazioni convinceresti gli abitanti di Namaek a rinunciare all'utilizzo della propria vettura in favore di mezzi di trasporto alternativi?",
+		    "accept": "text",
+		    "nextActivity": 22
+		},
+		{
+		    "idActivity": 22,
+		    "activityMission": "Il primo passo",
+			"type": 0,
+			"text": "LELIA PRESIDENTESSA DI DIPARTIMENTO Ma certo! Potremmo anche mettere in moto i comuni con un premio per incentivare l'utilizzo di biciclette, auto elettriche, mezzi pubblici piuttosto che privati, o addirittura il car-sharing che non solo aiuterebbe ad immettere meno vetture nel traffico cittadino e significherebbe meno smog, ma favorirebbe anche la socializzazione! ",
+			"nextActivity": 23
+		},
+		{
+		    "idActivity": 23,
+		    "activityMission": "Verde in città",
+			"type": 0,
+			"text": "LELIA PRESIDENTESSA DI DIPARTIMENTO Ottimo inizio, ma non basta. Cos'altro potremmo fare?",
+			"nextActivity": 24
+		},
+		{   
+		    "idActivity": 24,
+		    "activityMission": "Verde in città",
+			  "type": 1,
+		    "request": "Meno vetture in circolazione significa meno immissioni di agenti inquinanti nell'aria, ma non è abbastanza per diminuirne la percentuale in maniera costante. Cosa si può fare per ridurre i livelli di anidride carbonica nell'aria?",
+		    "firstValue" :  "Sradicare gli alberi dai boschi e portarli nelle città",
+		    "secondValue" : "Più verde in città",
+		    "thirdValue" : "Coltivare un campo di tulipani",
+		    "rightAnswer" : "Più verde in città",
+			"nextActivity": 25,
+			"points":"3"
+		},
+		{
+		    "idActivity": 25,
+		    "activityMission": "Verde in città",
+			"type": 0,
+			"text": "JACK Le piante assorbono anidride carbonica, riducendone la quantità presente nell'aria. E' utile dunque piantare tanti alberi soprattutto nelle città dove sono presenti le più alte concentrazioni di inquinanti. Costruire parchi e giardini, promuovere iniziative che portino la natura nei balconi delle case ad esempio. Questo favorirebbe anche il senso di responsabilità e dell'appartenenza alla società nei cittadini che in questo modo sentono di fare la propria parte per il bene di se stessi, degli altri e del luogo in cui vivono.",
+			"nextActivity": 26
+		},
+		{
+		    "idActivity": 26,
+		    "activityMission": "Tipi di energia",
+			"type": 0,
+			"text": "JACK Direi che questo è un buon inizio, ma nel nostro progetto non possono mancare delle importanti modifiche su di un aspetto fondamentale per la vita di una città, ma anche motivo di grande inquinamento : ...",
+			"nextActivity": 27
+		},
+		{   
+		    "idActivity": 27,
+		    "activityMission": "Tipi di energia",
+			"type": 1,
+		    "request": "Cosa dà vita ad una città, ma è anche motivo di inquinamento?",
+		    "firstValue" :  "Produzione di cibo",
+		    "secondValue" : "Produzione di energia",
+		    "thirdValue" : "Produzione di vaccini",
+		    "rightAnswer" : "Produzione di energia",
+			"points":"3",
+			"nextActivity": 28
+		},
+		{
+		    "idActivity": 28,
+		    "activityMission": "Tipi di energia",
+			"type": 0,
+			"text": "JACK L'energia su Namaek viene prodotta a partire da fonti Non Rinnovabili, combustibili fossili come gas naturale, carbone e petrolio. La combustione è un processo che produce inquinamento, dunque l'ideale sarebbe trovare delle fonti rinnovabili per la produzione di energia, sempre presenti e non inquinanti",
+			"nextActivity": 29
+		},
+		{
+		    "idActivity": 29,
+		    "activityMission": "Tipi di energia",
+			"type": 0,
+			"text": "JACK Allora, mi sembrava di aver portato con me una lista aggiornata con le ultime tendenze sulla terra a riguardo...",
+			"nextActivity": 30
+		},
+		{   
+		    "idActivity": 30,
+		    "activityMission": "Tipi di energia",
+			"type": 1,
+		    "request": "Quale lista di consigli per la produzione di energia pulita daresti a Lelia?",
+		    "firstValue" :  "centrale nucleare",
+		    "secondValue" : "energia solare,eolica e geotermica",
+		    "thirdValue" : "energia solare, energia eolica, centrali idroelettriche, biomasse, utilizzo del moto ondoso del mare, geotermico",
+		    "rightAnswer" : "energia solare, energia eolica, centrali idroelettriche, biomasse, utilizzo del moto ondoso del mare, geotermico",
+			"nextActivity": 31,      
+			"points":"3"
+		},
+		{
+		    "idActivity": 31,
+		    "activityMission": "Tipi di energia",	
+			"type": 0,
+			"text": "JACK Eccola! Con questa potrà dare una decisiva svolta alla produzione di energia, sostituendo le fonti che vengono utilizzate adesso potrete produrre energia pulita a costi più che sostenibili nel lungo periodo e dare finalmente respiro a questa povera gente ",
+			"nextActivity": 32
+		},
+		{
+		    "idActivity": 32,
+		    "activityMission": "Edilizia innovativa",
+			"type": 0,
+			"text": "LELIA PRESIDENTESSA DI DIPARTIMENTO Oh! Jack non so veramente come ringraziarla... sono sicura che con questo progetto risolleveremo questo piccolo pianeta. Ho giusto una domanda sull'ultima questione. Alcune di queste fonti le conosco, credo che anzi qualche privato utilizzi tecnologie provenienti dalla terra per la produzione di energia, ad esempio con pannelli solari o pale eoliche, ma come posso far si che queste tecnologie vengano impiantate a tappeto su tutto il territorio?" ,
+			"nextActivity": 33
+		},
+		{
+		    "idActivity": 33,
+		    "activityMission": "Edilizia innovativa",
+			"type": 0,
+			"text": "JACK Allora, Presidentessa, intanto posso consigliarle di utilizzare queste tecnologie in ogni spazio disponibile non dedicato all'edilizia o protetto in senso naturalistico, magari con un po' di inventiva. Che so io, i pannelli solari potrebbero essere sistemati sulle pensiline degli autobus, o per cominciare su tutti gli edifici comunali di una città, sui tetti delle scuole ad esempio...",
+			"nextActivity": 34
+		},
+		{
+		    "idActivity": 34,
+		    "activityMission": "Edilizia innovativa",
+			"type": 0,
+			"text": "JACK Ecco questo è un ottimo punto da aggiungere nel piano di salvataggio, l'impegno per un'edilizia innovativa! Costruire edifici ecosostenibili contribuisce di certo al benessere della città. Potrei consigliarle la costruzione di qualche Smog Free Tower! Funzionano tramite energia eolica, aspirano l'aria cittadina isolando le polveri sottili e la restituiscono quasi totalmente depurata. Oppure gli innovativi marciapiedi che producono energia al passaggio dei pedoni... cosa ne pensa? Ha qualche altra idea??",
+			"nextActivity": 35
+		},
+		{
+		    "idActivity": 35,
+		    "activityMission": "Edilizia innovativa",
+			"type": 2,
+		    "request": "Quali sono le tue idee di edifici alternativi ed innovativi per la produzione di energia pulita?",
+		    "accept": "text",
+		    "nextActivity": 36
+		},
+		{
+		    "idActivity": 36,
+		    "activityMission": "Ricapitolando",
+			"type": 0,
+			"text": "LELIA PRESIDENTESSA DI DIPARTIMENTO Direi che ci siamo, ricapitolando: mobilità, più verde, energia pulita ed edilizia innovativa. Questi i punti del progetto per risanare Namaek!",
+			"nextActivity": 37
+		},
+		{
+			"idActivity": 37,
+		   "activityMission": "Ricapitolando",
+			"type": 3,
+			"text": "Abbina le immagini con il loro contrario o la loro soluzione ecosostenibile",
+			"widget": "widget0.json",
+			"nextActivity": 38,
+			"points": "10"
+		},
+		{
+		    "idActivity": 38,
+		    "activityMission": "La cosa più importante",
+			"type": 0,
+			"text": "JACK Esatto, anche se forse c'è qualcosa di ancora più importante di tutto questo: l'Educazione. Non bastano un'edilizia sostenibile, aree verdi e la promozione di mobilità sostenibile se la popolazione abbandona le biciclette nei canali, getta ovunque plastica e rifiuti sporcando le aree verdi o che... Il primo passo per un pianeta sano e pulito e che possa mantenersi così a lungo, è l'investimento in educazione ambientale. Crescere e formare giovani consapevoli dello spazio in cui vivono, responsabili di se stessi, degli altri e dell'ambiente. I giovani che formerà oggi in questo senso, saranno ottimi governatori domani e i primi a trovare idee innovative per rendere casa propria il posto migliore in cui vivere insieme. Così è successo sulla Terra. E ora la saluto e le faccio un grande in bocca al lupo.",
+			"nextActivity": 39
+		},
+		{
+		    "idActivity": 39,
+		    "activityMission": "La cosa più importante",
+			"type": 4,
+			"text": "JACK A presto Lelia! Buona fortuna!!!"
+		}
+		
+	]
+}

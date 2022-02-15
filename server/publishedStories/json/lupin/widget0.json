@@ -1,0 +1,47 @@
+{
+	"memory": [{
+			"name": "background",
+			"value": "/images/background.jpg"
+		},
+		{
+			"name": "hator",
+			"value": "/images/hator.jpg"
+		},
+		{
+			"name": "iside",
+			"value": "/images/iside.jpg"
+		},
+		{
+			"name": "maschera",
+			"value": "/images/maschera.jpg"
+		},
+		{
+			"name": "mummia",
+			"value": "/images/mummia.jpg"
+		},
+		{
+			"name": "nepthis",
+			"value": "/images/nepthis.jpg"
+		},
+		{
+			"name": "osiride",
+			"value": "/images/osiride.jpg"
+		},
+		{
+			"name": "piramide",
+			"value": "/images/piramide.png"
+		},
+		{
+			"name": "ra",
+			"value": "/images/ra.jpg"
+		},
+		{
+			"name": "sekhmet",
+			"value": "/images/sekhmet.jpg"
+		},
+		{
+			"name": "thot",
+			"value": "/images/thot.jpg"
+		}
+	]
+}

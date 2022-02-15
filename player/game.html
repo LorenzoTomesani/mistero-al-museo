@@ -1,0 +1,106 @@
+<!DOCTYPE html5>
+<html lang = "it">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Game</title>
+  <!-- JS, Popper.js, and jQuery -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+  <!-- favicon test -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png"/>
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png"/>
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png"/>
+  <link rel="icon" type="image/png" sizes="192x192" href="/favicon/android-chrome-192x192.png"/> 
+  <link rel="icon" type="image/png" sizes="512x512" href="/favicon/android-chrome-512x512.png"/> 
+  <link rel="icon" href="/favicon/favicon.ico" type="image/x-icon"/>
+  <link rel="manifest" href="/favicon/site.webmanifest">		
+  <!-- styles -->
+  <link rel="stylesheet" type="text/css" href="/player/style/styleGame.css">
+  <link rel="stylesheet" type="text/css" href="/player/memory/styleMemory.css">
+  <!-- scripts -->
+  
+  <!-- scripts -->        
+  <script type="text/javascript" src="/player/scripts/scriptGame.js"></script>		
+  <script type="text/javascript" src="/player/memory/scriptMemory.js"></script>
+</head>
+<body>
+  <nav id="nav_image" class="navbar fixed-top navbar-expand-sm justify-content-center text-white">
+    <p id = "story-title"  tabindex="0"> </p>
+  </nav>
+  <div class="main-position" role="main">
+    <div id = "bar-progress" aria-hidden="true">
+      <div class="progress border">
+        <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" aria-label="Progress Bar">%</div>
+      </div>
+    </div>
+    <div class="container-fluid" id="upperPart">
+      <div class = "row">
+        <div class = "col-8 center-box-styling border-styling" tabindex="0" aria-label="Domanda">
+          <p id="text_box" tabindex="0"></p>
+        </div>
+        <div class="col-4 center-box-styling border-styling">
+          <img class="right-hints" src="images/hint.png" onclick="hintRequest()" alt="richiedi Hint cliccandoci" tabindex="0"/>
+          <p id="hints_box" tabindex="0">Hints rimanenti : 2</p>
+          <div id="hints_text" tabindex="0"> </div>
+        </div>
+      </div>
+    </div>
+    
+    <div id="answerRow" class = "container-fluid fixed-bottom">
+      <div class = "row">
+        <input type="text" id="answertext" name="answertext" aria-label="inserisci valore">
+      </div>
+      <div class = "row">
+        <input type="radio" id="firstValue" name="answermulti" aria-label="prima risposta">
+        <label for="firstValue" id="firstL" tabindex="0"></label>
+      </div>
+      <div class = "row">
+        <input type="radio" id="secondValue" name="answermulti" aria-label="seconda risposta">
+        <label for="secondValue"  id="secondL" tabindex="0"></label>
+      </div>
+      <div class = "row">
+        <input type="radio" id="thirdValue" name="answermulti" aria-label="terza risposta">
+        <label for="thirdValue" id="thirdL" tabindex="0"></label>
+      </div>
+      <div class = "row">
+        <input type="file" id="answerfile" name="answerfile"  aria-label="inserisci il file richiesto">
+      </div>
+      <div class = "row">
+        <textarea id="answerLong" name="answerLong"  aria-label="risposta per descrivere"></textarea>
+      </div>
+      <div class = "row">
+        <button  id="nextButton" class="btn btn-success" onclick="next()" aria-label="bottone avanti">avanti</button>
+      </div>
+      <div id="waiting" aria-label="attendi la valutazione">attendere la valutazione.. </div>
+      <button type="button" class="open-button btn btn-primary text-center" onclick="openForm()" aria-label="apri la chat">Chat</button>
+      
+      <div class="chat-popup" id="myForm">
+        <form>
+          <h1>Chat</h1>
+          <textarea placeholder="Type message.." name="msg" id="textToSend" required aria-label="messaggio da inviare"> </textarea>
+          <textarea name="msg" id="textToReceive" readonly aria-label="messaggi ricevuti"></textarea>
+          <div>
+            <button  type="button" class="button btn-success" aria-label="Buttone invia" onClick="sendtoserver()">Invia</button>
+            <button type="button" class ="button btn-danger" aria-label="Buttone chiudi" onclick="closeForm()">Close</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  
+  <!-- prova modal -->
+  <div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog"  role="document">
+      <div class="modal-content  white-border">
+        <div class="modal-body" id="modal-body">
+        </div>	
+      </div>
+    </div>
+  </div>
+  
+</body>
+</html>

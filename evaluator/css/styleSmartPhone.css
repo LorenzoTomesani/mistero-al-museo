@@ -1,0 +1,104 @@
+@media(max-width:1024px) {
+   .card{
+    	width:45vw !important;
+      height: auto;
+    }
+   .cardProfiles{
+     height : 15vh !important;
+     width: auto !important;
+   }
+   .form-container {
+     width: 50vw;
+     max-height: 45vh;
+   }
+   .profile{
+     left: 38vw !important;
+   }
+   .BarProfile{
+     left: 30vw !important;
+   }
+   .AnswerToEval{
+     right: 3vw !important;
+   }
+   .progressWidth{
+     width:70% !important;
+   }
+  .chat-container{
+  	width:60vw !important;
+  }
+
+  .alert{
+  	position:relative;
+  	left: 27.5vw;
+  	width:25%;
+  	background-color: #fffef5;
+  	border-bottom: solid #d92027 !important;;
+  	color: #f37121 !important;
+  	margin-top:1vh;
+  	border-width:0.2vw;
+  	height: 6vh;
+  	font-size: 1.30em;
+  	font-weight: bold;
+  	z-index: 1 !important;
+  }
+
+  .answerPoint{
+    width: 40vw !important;
+    height: auto !important;
+  }
+
+  #scoreToSend{
+    position: relative;
+    left: 12vw;
+  }
+ }
+
+
+ @media screen and (min-width:1025px) and (max-width: 1280px)  {
+   .card{
+      /* width: 25vw !important; */
+      width: 20vw !important;
+      height: 40vh !important;
+      /* max-height: 50vh !important; */
+    }
+
+    .alert{
+     position:relative;
+     left: 37.5vw;
+     width:25%;
+     background-color: #fffef5;
+     border-bottom: solid #d92027 !important;
+     color: #f37121 !important;
+     margin-top:1vh;
+     border-width:0.2vw;
+    }
+
+    .answerPoint{
+      width: 30vw !important;
+      height: auto !important;
+    }
+}
+
+@media screen and (min-width: 1281px) {
+
+  .card{
+     width: 25vw !important;
+     height: 37vh !important;
+   }
+
+   .alert{
+   	position:relative;
+   	left: 37.5vw;
+   	width:25%;
+   	background-color: #fffef5;
+   	border-bottom: solid #d92027 !important;
+   	color: #f37121 !important;
+   	margin-top:1vh;
+   	border-width:0.2vw;
+   }
+
+   .answerPoint{
+     width: 20vw !important;
+     height: auto !important;
+   }
+}
